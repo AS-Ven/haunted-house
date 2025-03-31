@@ -65,7 +65,41 @@ house.add(walls, roof, door)
 
 //#endregion
 
-scene.add(floor, house)
+
+//#region Bushes
+
+const bushes = new THREE.Group()
+
+// Size and Textures
+const bushGeometry = new THREE.SphereGeometry(1, 16, 16)
+const bushMaterial = new THREE.MeshStandardMaterial()
+
+// Bush_1
+const bush_1 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush_1.scale.setScalar(0.5)
+bush_1.position.set(0.8, 0.2, 2.2)
+
+// Bush_2
+const bush_2 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush_2.scale.setScalar(0.25)
+bush_2.position.set(1.4, 0.1, 2.1)
+
+// Bush_3
+const bush_3 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush_3.scale.setScalar(0.4)
+bush_3.position.set(- 0.8, 0.1, 2.2)
+
+// Bush_4
+const bush_4 = new THREE.Mesh(bushGeometry, bushMaterial)
+bush_4.scale.setScalar(0.15)
+bush_4.position.set(- 1, 0.05, 2.6)
+
+bushes.add(bush_1, bush_2, bush_3, bush_4)
+
+//#endregion
+
+
+scene.add(floor, house, bushes)
 
 //#endregion
 
