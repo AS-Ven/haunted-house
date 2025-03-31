@@ -33,7 +33,39 @@ const floor = new THREE.Mesh(
 )
 floor.rotation.x = - Math.PI * 0.5
 
-scene.add(floor)
+
+//#region House
+
+const house = new THREE.Group()
+
+// Walls
+const walls = new THREE.Mesh(
+    new THREE.BoxGeometry(4, 2.5, 4),
+    new THREE.MeshStandardMaterial()
+)
+walls.position.y += 2.5 / 2
+
+// Roof
+const roof = new THREE.Mesh(
+    new THREE.ConeGeometry(3.5, 1.5, 4),
+    new THREE.MeshStandardMaterial()
+)
+roof.position.y += 2.5 + 1.5 / 2
+roof.rotation.y += Math.PI * 0.25
+
+// Door
+const door = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.2, 2.2),
+    new THREE.MeshStandardMaterial({color: "burlywood"})
+)
+door.position.y = 1
+door.position.z = 2 + 0.001
+
+house.add(walls, roof, door)
+
+//#endregion
+
+scene.add(floor, house)
 
 //#endregion
 
