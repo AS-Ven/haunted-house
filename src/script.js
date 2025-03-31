@@ -99,7 +99,40 @@ bushes.add(bush_1, bush_2, bush_3, bush_4)
 //#endregion
 
 
-scene.add(floor, house, bushes)
+//#region Graves
+
+const graves = new THREE.Group()
+
+// Size and Textures
+const graveGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.2)
+const graveMaterial = new THREE.MeshStandardMaterial()
+
+for (let i = 0; i < 30; i++) {
+    // Grave
+    const grave = new THREE.Mesh(graveGeometry, graveMaterial)
+
+    // Position
+    const gap = 3 + Math.random() * 4
+    grave.position.set(
+        Math.sin(Math.random() * Math.PI * 2 ) * gap,
+        Math.random() * 0.4,
+        Math.cos(Math.random() * Math.PI * 2 ) * gap
+    )
+
+    // Rotation
+    grave.rotation.set(
+        (Math.random() - 0.5) * 0.4,
+        (Math.random() - 0.5) * Math.PI,
+        (Math.random() - 0.5) * 0.4
+    )
+
+    graves.add(grave)
+}
+
+
+//#endregion
+
+scene.add(floor, house, bushes, graves)
 
 //#endregion
 
