@@ -395,6 +395,13 @@ sky.material.uniforms['sunPosition'].value.set(0.3, -0.038, -0.95)
 //#endregion
 
 
+//#region Fog
+
+scene.fog = new THREE.FogExp2('#02343f', 0.1)
+
+//#endregion
+
+
 //#region Animation
 
 // Timer
