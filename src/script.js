@@ -329,6 +329,56 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 //#endregion
 
 
+//#region Shadows
+
+// Renderer
+renderer.shadowMap.enabled = true
+renderer.shadowMap.type = THREE.PCFSoftShadowMap
+
+// Ghosts
+directionalLight.castShadow = true
+ghost_1.castShadow = true
+ghost_2.castShadow = true
+ghost_3.castShadow = true
+
+// Models
+walls.castShadow = true
+walls.receiveShadow = true
+roof.castShadow = true
+floor.receiveShadow = true
+
+// Graves
+for (const grave of graves.children) {
+    grave.castShadow = true
+    grave.receiveShadow = true
+}
+
+// Mappings
+directionalLight.shadow.mapSize.width = 256
+directionalLight.shadow.mapSize.height = 256
+directionalLight.shadow.camera.top = 8
+directionalLight.shadow.camera.right = 8
+directionalLight.shadow.camera.bottom = - 8
+directionalLight.shadow.camera.left = - 8
+directionalLight.shadow.camera.near = 1
+directionalLight.shadow.camera.far = 20
+
+// Ghosts Map
+ghost_1.shadow.mapSize.width = 256
+ghost_1.shadow.mapSize.height = 256
+ghost_1.shadow.camera.top = 10
+
+ghost_2.shadow.mapSize.width = 256
+ghost_2.shadow.mapSize.height = 256
+ghost_2.shadow.camera.top = 10
+
+ghost_3.shadow.mapSize.width = 256
+ghost_3.shadow.mapSize.height = 256
+ghost_3.shadow.camera.top = 10
+
+//#endregion
+
+
 //#region Animation
 
 // Timer
